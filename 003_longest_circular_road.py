@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(10**6)
 n = int(input())
 path_list = [[] for i in range(n)]
 for i in range(n-1):
@@ -14,7 +16,6 @@ def dfs(start, graph, count = 0, visited=None):
     for i in graph[start]:
         if i not in visited:
             node, distance = dfs(i, graph, count+1, visited)
-            print(node, distance, farthest_node, longest_distance)
             if distance > longest_distance:
                 farthest_node = node
                 longest_distance = distance
